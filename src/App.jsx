@@ -15,14 +15,12 @@ function App() {
   return (
     <>
       <Header />
-      <div className="flex-grow container mx-auto px-4 py-8">
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Auth />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </div>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
