@@ -1,8 +1,25 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
+import { useEffect } from "react";
 import { FaTrophy } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 const EndingScreen = ({ leaderboard }) => {
   const sortedLeaderboard = [...leaderboard].sort((a, b) => b.score - a.score);
+
+  const { quizId } = useParams();
+
+  useEffect(() => {
+    async function submitQuiz() {
+      try {
+        const res = await axios.post(`/api/v1/quiz/${quizId}`);
+        console.log(res);
+      } catch (error) {
+        console.log("Quiz submission failed", error);
+      }
+    }
+    submitQuiz();
+  }, [quizId]);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
