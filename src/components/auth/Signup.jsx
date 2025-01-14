@@ -47,6 +47,7 @@ const Signup = ({ setIsLogin }) => {
       const res = await axios.post("/api/v1/user/signup", { email, password, name });
       if (res.data?.data) {
         window.localStorage.setItem("user", JSON.stringify(res.data.data));
+        window.location.href = "/home";
       }
     } catch (err) {
       console.log(err);

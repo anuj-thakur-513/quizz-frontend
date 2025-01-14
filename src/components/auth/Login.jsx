@@ -36,6 +36,7 @@ const Login = ({ setIsLogin }) => {
       const res = await axios.post("/api/v1/user/login", { email, password });
       if (res.data?.data) {
         window.localStorage.setItem("user", JSON.stringify(res.data.data));
+        window.location.href = "/home";
       }
     } catch (err) {
       console.log(err);
