@@ -85,7 +85,7 @@ const Quiz = () => {
   }, [timeUntilStart]);
 
   const connectWebSocket = () => {
-    const ws = new WebSocket(`ws://localhost:8000/api/v1/quiz/${quizId}/start`);
+    const ws = new WebSocket(`ws://api.quizz.anuj-thakur.com/api/v1/quiz/${quizId}/start`);
     ws.onopen = () => console.log("WebSocket connected");
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
